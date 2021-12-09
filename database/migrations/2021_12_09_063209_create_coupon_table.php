@@ -13,7 +13,7 @@ class CreateCouponTable extends Migration
      */
     public function up()
     {
-        Schema::create('coupon', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('coupon_name');
             $table->string('coupon_code');
