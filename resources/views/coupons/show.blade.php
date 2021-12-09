@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.todo')
 
 @section('title')
     {{$coupon->coupon_name}}
 @endsection
-@section('content')
+@section('comp')
     <div class="container">
         <h1 class="text-center my-5">
             {{$coupon->coupon_name}}

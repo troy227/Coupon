@@ -1,9 +1,9 @@
 
-@extends('layouts.app')
+@extends('layouts.todo')
 @section('title')
     Coupon Management System
 @endsection
-@section('content')
+@section('comp')
 <div class="container">
     <h1 class="text-center my-5" >Coupons</h1>
     <div class="row justify-content-center">

@@ -40,7 +40,7 @@
             {{session()->get('success')}}
             @endif
         </div>
-        @yield('content')
+        @yield('comp')
 
 </div>
 </body>
