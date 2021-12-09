@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/coupons', '\App\Http\Controllers\CouponController@index');
+Route::get('/new-coupons','\App\Http\Controllers\CouponController@create');
+Route::post('/store-coupon', '\App\Http\Controllers\CouponController@store');

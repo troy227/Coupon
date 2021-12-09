@@ -20,6 +20,7 @@
 
                                 <a href="/coupons/{{$coupon->id}}" class="btn btn-primary btn-sm float-right">View</a>
                             </li>
+
                         @endforeach
                     </ul>
                 </div>
