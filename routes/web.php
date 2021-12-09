@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/coupons', '\App\Http\Controllers\CouponController@index');
 Route::get('/new-coupons','\App\Http\Controllers\CouponController@create');
 Route::post('/store-coupon', '\App\Http\Controllers\CouponController@store');
+Route::get('/coupons/{coupon}','\App\Http\Controllers\CouponController@show');
+Route::get('/coupons/{coupon}/edit', '\App\Http\Controllers\CouponController@edit');
+Route::post('/coupons/{coupon}/update', '\App\Http\Controllers\CouponController@update');

@@ -44,4 +44,41 @@ class CouponController extends Controller
         session()->flash('success', 'Coupon created successfully.');
         return redirect('/coupons');
     }
+
+    public function show(Coupon $coupon)
+    {
+        return view('coupons.show')->with('coupon', $coupon);
+    }
+
+    public function edit(Coupon $coupon)
+    {
+        return view('coupons.edit')->with('coupon', $coupon);
+    }
+
+    public function update(Coupon $coupon)
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'code' => 'required',
+            'desc' => 'required',
+            'valid_from' => 'required|before:valid_until',
+            'valid_until' => 'required|after:valid_from',
+            'amount' => 'required',
+            'max_redeem' => 'required|gte:redeem_per_user',
+            'redeem_per_user' => 'required|lte:max_redeem'
+        ]);
+        $data = request()->all();
+        $coupon->coupon_name=$data['name'];
+        $coupon->coupon_code=$data['code'];
+        $coupon->description=$data['desc'];
+        $coupon->valid_from=$data['valid_from'];
+        $coupon->valid_until=$data['valid_until'];
+        $coupon->max_redeem=$data['max_redeem'];
+        $coupon->max_redeem_per_user=$data['redeem_per_user'];
+        $coupon->coupon_amount=$data['amount'];
+        $coupon->save();
+        session()->flash('success', 'Coupon edited successfully.');
+        return redirect('/coupons');
+
+    }
 }
