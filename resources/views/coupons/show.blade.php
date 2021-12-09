@@ -55,6 +55,7 @@
                     </div>
                 </div>
                 <a href="{{$coupon->id}}/edit" class="btn btn-primary my-2 btn-sm float-right">EDIT</a>
+                <a href="{{$coupon->id}}/delete" class="btn btn-danger my-2 btn-sm float-right">DELETE</a>
 
             </div>
         </div>

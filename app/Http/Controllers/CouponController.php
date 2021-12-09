@@ -81,4 +81,11 @@ class CouponController extends Controller
         return redirect('/coupons');
 
     }
+
+    public function delete(Coupon $coupon)
+    {
+        $coupon->delete();
+        session()->flash('success', 'Coupon deleted successfully.');
+        return redirect('/coupons');
+    }
 }

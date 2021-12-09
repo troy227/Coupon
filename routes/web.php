@@ -21,3 +21,4 @@ Route::post('/store-coupon', '\App\Http\Controllers\CouponController@store');
 Route::get('/coupons/{coupon}','\App\Http\Controllers\CouponController@show');
 Route::get('/coupons/{coupon}/edit', '\App\Http\Controllers\CouponController@edit');
 Route::post('/coupons/{coupon}/update', '\App\Http\Controllers\CouponController@update');
+Route::get('coupons/{coupon}/delete', '\App\Http\Controllers\CouponController@delete');
