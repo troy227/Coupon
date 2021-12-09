@@ -12,16 +12,16 @@
             <div class="col-md-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        Description
-                    </div>
-                    <div class="card-body">
-                        {{$coupon->description}}
-                    </div>
-                    <div class="card-header">
                         Coupon Code
                     </div>
                     <div class="card-body">
                         {{$coupon->coupon_code}}
+                    </div>
+                    <div class="card-header">
+                        Description
+                    </div>
+                    <div class="card-body">
+                        {{$coupon->description}}
                     </div>
                     <div class="card-header">
                         Valid from
@@ -54,6 +54,8 @@
                         {{$coupon->max_redeem_per_user}}
                     </div>
                 </div>
+                <a href="{{$coupon->id}}/edit" class="btn btn-primary my-2 btn-sm float-right">EDIT</a>
+
             </div>
         </div>
     </div>
