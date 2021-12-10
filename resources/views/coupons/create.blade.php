@@ -1,4 +1,4 @@
-@extends('layouts.todo')
+@extends('layouts.coupon')
 
 
 @section('comp')

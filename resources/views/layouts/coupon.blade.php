@@ -20,16 +20,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/coupons">Home</a>
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/home">Home</a>
                 </li>
+                @if (Auth::user()->user_type=='Admin')
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/new-coupons">Create</a>
                 </li>
+                @endif
 
 
 
 
             </ul>
+
 
         </div>
     </div>
