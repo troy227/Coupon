@@ -25,11 +25,11 @@ class CouponController extends Controller
             'name' => 'required',
             'code' => 'required',
             'desc' => 'required',
-            'valid_from' => 'required|before:valid_until',
-            'valid_until' => 'required|after:valid_from',
-            'amount' => 'required',
-            'max_redeem' => 'required|gte:redeem_per_user',
-            'redeem_per_user' => 'required|lte:max_redeem'
+            'valid_from' => 'required|before:valid_until|date|date_format:Y-m-d',
+            'valid_until' => 'required|after:valid_from|date|date_format:Y-m-d',
+            'amount' => 'required|integer',
+            'max_redeem' => 'required|gte:redeem_per_user|integer',
+            'redeem_per_user' => 'required|lte:max_redeem|integer'
         ]);
 //        $data = $request()->all();
         $coupon = new Coupon();
@@ -63,11 +63,11 @@ class CouponController extends Controller
             'name' => 'required',
             'code' => 'required',
             'desc' => 'required',
-            'valid_from' => 'required|before:valid_until',
-            'valid_until' => 'required|after:valid_from',
-            'amount' => 'required',
-            'max_redeem' => 'required|gte:redeem_per_user',
-            'redeem_per_user' => 'required|lte:max_redeem'
+            'valid_from' => 'required|before:valid_until|date',
+            'valid_until' => 'required|after:valid_from|date',
+            'amount' => 'required|integer',
+            'max_redeem' => 'required|gte:redeem_per_user|integer',
+            'redeem_per_user' => 'required|lte:max_redeem|integer'
         ]);
         $data = $request->all();
         $coupon->coupon_name = $request['name'];
