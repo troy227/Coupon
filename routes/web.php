@@ -1,5 +1,8 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/coupons', '\App\Http\Controllers\CouponController@index');
-Route::get('/new-coupons','\App\Http\Controllers\CouponController@create');
-Route::post('/store-coupon', '\App\Http\Controllers\CouponController@store');
-Route::get('/coupons/{coupon}','\App\Http\Controllers\CouponController@show');
-Route::get('/coupons/{coupon}/edit', '\App\Http\Controllers\CouponController@edit');
-Route::post('/coupons/{coupon}/update', '\App\Http\Controllers\CouponController@update');
-Route::get('coupons/{coupon}/delete', '\App\Http\Controllers\CouponController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('coupons/{coupon}/delete', 'CouponController@delete');
+    Route::get('/coupons/{coupon}/edit', 'CouponController@edit');
+    Route::get('/new-coupons', 'CouponController@create');
+    Route::post('/store-coupon', 'CouponController@store');
+    Route::post('/coupons/{coupon}/update', 'CouponController@update');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/coupons', 'CouponController@index');
+
+    Route::get('/coupons/{coupon}', 'CouponController@show');
+
+
+});

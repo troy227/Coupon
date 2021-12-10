@@ -1,5 +1,5 @@
 
-@extends('layouts.todo')
+@extends('layouts.coupon')
 @section('title')
     Coupon Management System
 @endsection

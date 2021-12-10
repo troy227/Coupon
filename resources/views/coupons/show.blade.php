@@ -1,4 +1,4 @@
-@extends('layouts.todo')
+@extends('layouts.coupon')
 
 @section('title')
     {{$coupon->coupon_name}}
@@ -54,9 +54,11 @@
                         {{$coupon->max_redeem_per_user}}
                     </div>
                 </div>
+                @if (Auth::user()->user_type=='Admin')
+
                 <a href="{{$coupon->id}}/edit" class="btn btn-primary my-2 btn-sm float-right">EDIT</a>
                 <a href="{{$coupon->id}}/delete" class="btn btn-danger my-2 btn-sm float-right">DELETE</a>
-
+                @endif
             </div>
         </div>
     </div>
